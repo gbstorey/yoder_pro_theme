@@ -1,0 +1,8 @@
+<div class="flex justify-center items-center w-10 h-12 flex-wrap">
+  <div class="rounded shadow">
+    {{ collection.featured_image | image_url | image_tag: class: "w-full h-full object-cover", alt: collection.title }}
+  </div>
+  <div>
+    <p>{{ collection.title }}</p>
+  </div>
+</div>

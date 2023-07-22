@@ -1,0 +1,56 @@
+{
+  "sections": {
+    "template": {
+      "type": "template-page",
+      "settings": {
+      }
+    },
+    "info-image-card": {
+      "type": "info-image-card",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/20230702_124030_67b5672c-25fb-4da1-91f8-1f875ef585cb.jpg",
+        "cardText": "Welcome to Black Diamond, a small but deeply committed business on a mission to provide you with access to a vast collection of enduring, high-quality products. From soft, cozy, and beautiful blankets to exquisite rugs that enhance the beauty and comfort of your home, we offer a diverse range of sports items that cater to everyone's tastes.",
+        "orientation": "flex-row",
+        "imagePosition": "object-center"
+      }
+    },
+    "2c029c89-4878-46f6-96ab-21ea0fd90482": {
+      "type": "info-image-card",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/pexels-anna-shvets-3845458_1.jpg",
+        "cardText": "At Black Diamond, our dedication goes beyond mere business. We have an unwavering commitment to making a difference in the lives of those who face challenges in providing for themselves. Our journey begins with Angela, our beloved daughter and only child with Down Syndrome. She has inspired us to build a business that not only serves our customers but also serves a greater purpose.",
+        "orientation": "flex-row-reverse",
+        "imagePosition": "object-center"
+      }
+    },
+    "41158ca9-4594-4c0b-b69d-a41e4bc6ec30": {
+      "type": "info-image-card",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/20230702_122634_1.jpg",
+        "cardText": "Your business and support are truly valued and appreciated. Every purchase you make enables us to create a better quality of life for Angela and others like her. With each transaction, you become a vital part of our mission to help those in need. We are immensely grateful for your continued support as we work together to make a positive impact on the lives of others.",
+        "orientation": "flex-row",
+        "imagePosition": "object-center"
+      }
+    },
+    "centered-hero-text": {
+      "type": "centered-hero-text",
+      "settings": {
+        "message": "Thank you for being a part of our journey, for helping us help others, and for choosing Black Diamond. Together, we can make a difference and create a brighter future for everyone."
+      }
+    },
+    "6d4c9f77-6dfb-4f8d-8c9e-9702bf2c3466": {
+      "type": "contact-form",
+      "settings": {
+        "title": "Contact Us"
+      }
+    }
+  },
+  "order": [
+    "template",
+    "info-image-card",
+    "2c029c89-4878-46f6-96ab-21ea0fd90482",
+    "41158ca9-4594-4c0b-b69d-a41e4bc6ec30",
+    "centered-hero-text",
+    "6d4c9f77-6dfb-4f8d-8c9e-9702bf2c3466"
+  ]
+}

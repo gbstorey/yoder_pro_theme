@@ -1,0 +1,12 @@
+<div class="w-full py-6 px-3">
+  <div class="border bg-white shadow-lg rounded-lg overflow-hidden">
+    {{ 'product-1' | placeholder_svg_tag: 'w-full h-80 object-cover bg-gray-100' }}
+    <div class="flex flex-col p-4">
+      {% if showVendor %}
+        <span class="text-sm ">Vendor</span>
+      {% endif %}
+      <span class="uppercase text-lg font-medium  my-2">Product Title</span>
+      <span class="text-base ">{{ '9999' | money }}</span>
+    </div>
+  </div>
+</div>

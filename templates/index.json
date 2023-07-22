@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "hero-section": {
+      "type": "hero-section",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/301353331_583691570148248_5559993468893791668_n.png",
+        "heroHeadline": "The perfect gift for your favorite fanatic.",
+        "heroDescription": "Discover the best sports merchandise while helping to support special needs children."
+      }
+    },
+    "featured-organizations": {
+      "type": "featured-organizations",
+      "settings": {
+        "collection_list": [
+          "blankets",
+          "crystal-flared-mugs",
+          "crystal-tumblers",
+          "copper-moscow-mule-mugs",
+          "stainless-steel-thermoses"
+        ]
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "featured_collection": "all",
+        "num_products": 8,
+        "showVendor": true
+      }
+    },
+    "0366b9a4-dcb1-4c13-b018-9afd5b20a23b": {
+      "type": "featured-organizations",
+      "settings": {
+        "collection_list": [
+          "drinkware",
+          "rugs"
+        ]
+      }
+    }
+  },
+  "order": [
+    "hero-section",
+    "featured-organizations",
+    "featured-collection",
+    "0366b9a4-dcb1-4c13-b018-9afd5b20a23b"
+  ]
+}

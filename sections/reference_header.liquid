@@ -1,0 +1,212 @@
+<div
+  class="relative bg-gray-800 text-white max-w-6xl mx-auto py-6 px-6 md:py-0"
+  x-data="{ mobileMenuOpen: false, searchBarOpen: false }"
+  x-cloak>
+  <div class="mx-auto max-w-6xl sm:px-6 md:px-0">
+    <div class="flex justify-start relative items-center py-6 md:justify-start md:space-x-10">
+      <!-- STORE NAME / STORE LOGO -->
+      <div class="flex justify-start items-center lg:flex-1 truncate absolute left-1/2 md:left-0 transform -translate-x-1/2 md:transform-none md:relative">
+        <a href="{{ routes.root_url }}">
+          {% if section.settings.logoEnabled %}
+            {% if section.settings.logo != blank %}
+              <div class="rounded-full bg-gray-700 mr-6 h-20 w-20">
+                {{ section.settings.logo | image_url: width: 100 | image_tag: class: 'w-full h-full object-contain p-1', alt: "Black Diamond Logo" }}
+              </div>
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'h-20 mr-3' }}
+            {% endif %}
+          {% endif %}
+        </a>
+        <h1 class="text-2xl lg:text-3xl font-semibold truncate invisible md:visible w-0 md:w-auto">{{ shop.name }}</h1>
+      </div>
+
+      <div class="-mr-2 -my-2 ml-auto md:ml-3 md:hidden">
+        <button
+          type="button"
+          class="p-2 inline-flex items-center justify-center focus:outline-none text-gray-100 hover:text-amber-400"
+          x-on:click="mobileMenuOpen = true">
+          {% render 'icon-hamburger' %}
+        </button>
+      </div>
+
+      <!-- NAVIGATION MENU -->
+      <nav class="hidden md:flex space-x-10">
+        {% for link in linklists.main-menu.links %}
+          {% if link.links != blank %}
+            {% assign link_handle = link.handle | replace: '-', '_' %}
+            <div class="relative" x-data="{ {{ link_handle }}: false }">
+              <button
+                type="button"
+                class="inline-flex items-center text-base hover:text-amber-400"
+                x-on:click="{{ link_handle }} = ! {{ link_handle }}">
+                {{ link.title }}
+                {% render 'icon-dropdown' %}
+              </button>
+
+              <div
+                class="absolute z-10 -ml-5 mt-5 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                x-show="{{ link_handle }}"
+                @click.away="open = false">
+                <div class="shadow-lg border ring-black ring-opacity-5 overflow-hidden rounded-lg">
+                  <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+
+                    {% for childlink in link.links %}
+
+                      <a href={{ childlink.url }}class="-m-3 p-3 flex items start rounded-lg hover:text-amber-400">
+                        <div class="ml-4">
+                          <p class="text-white text-base font-medium">
+                            {{ childlink.title }}
+                          </p>
+                        </div>
+                      </a>
+
+                    {% endfor %}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        {% else %}
+          <div class="relative">
+            <a href={{ link.url }} class="text-base hover:text-amber-400">{{ link.title }}</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+
+      <div class="hidden md:flex items-center justify-end md:flex-1 space-x-5">
+        <button
+          type="button"
+          class="whitespace-nowrap text-base hover:text-amber-400"
+          x-on:click="searchBarOpen = true">
+          {% render 'icon-search' %}
+        </button>
+        <a href={{ routes.cart_url }} class="whitespace-nowrap text-base hover:text-amber-400">
+          {% render 'icon-shopping-bag' %}
+        </a>
+
+        {% if shop.customer_accounts_enabled %}
+          {% if customer %}
+            <a href={{ routes.account_url }} class="text-base hover:text-amber-400">Account</a>
+            <a href={{ routes.account_logout_url }} class="text-base  hover:text-amber-400">Logout</a>
+          {% else %}
+            <a href={{ routes.account_login_url }} class="text-base  hover:text-amber-400">Login</a>
+            <a href={{ routes.account_register_url }} class="text-base text-amber-400 hover:text-amber-500">Register</a>
+          {% endif %}
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+  <div x-show="mobileMenuOpen" class="absolute z-10 top-0 inset-x-0 p-2 transform origin-top-left md:hidden">
+    <div class="shadow-lg rounded-lg ring-1 ring-black ring-opacity-5 w-full">
+      <div class="p-5 divide-y-2 divide-gray-50">
+
+        <!-- MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON -->
+        <div class="flex items-center justify-between pb-3">
+          <div>
+            <h1 class="text-lg">{{ section.settings.mobile_menu_title }}</h1>
+          </div>
+          <div class="-mr-2">
+            <button
+              x-on:click="mobileMenuOpen = false"
+              type="button"
+              class="text-gray-100 rounded-md p-2 hover:text-amber-400">
+              {% render 'icon-close' %}
+            </button>
+          </div>
+        </div>
+
+        <!-- NAVIGATION LINKS FOR MOBILE MENU -->
+        <div class="pt-3">
+          <nav class="grid gap-y-7">
+            {% for link in linklists.main-menu.links %}
+              {% assign link_handle = link.handle | replace: '-', '_' %}
+              {% if link.links != blank %}
+                <div x-data="{ {{ link_handle }} : false }" class="relative">
+                  <button
+                    type="button"
+                    class="text-base hover:text-white/80 flex items-center justify-between w-full"
+                    x-on:click="{{ link_handle }} = ! {{ link_handle }}">
+                    <div>{{ link.title }}</div>
+                    {% render 'icon-dropdown' %}
+                  </button>
+
+                  <div class="grid gap-y-7 py-3" x-show="{{ link_handle }}">
+                    {% for childlink in link.links %}
+
+                      <a href={{ childlink.url }} class="-m-3 p-3 mt-2 flex items-center rounded-md  hover:text-white/80hover:bg-gray-50">
+                        <span class="ml-3 text-base font-medium ">
+                          {{ childlink.title }}
+                        </span>
+                      </a>
+
+                    {% endfor %}
+                  </div>
+
+                </div>
+              {% else %}
+                <a href={{ link.url }} class="-m-3 p-3 flex items-center rounded-md  hover:text-white/80 hover:bg-gray-50">
+                  {{ link.title }}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div x-show="searchBarOpen" class="w-full absolute top-0 right-0 bg-gray-800 mx-auto">
+    <div class="h-40 flex justify-center items-center w-11/12 mx-auto">
+      <button
+        type="button"
+        x-on:click="searchBarOpen = false"
+        class="absolute top-0 right-12 mt-5 text-white">
+        {% render 'icon-close' %}
+      </button>
+      <form
+        action="{{ routes.search_url }}"
+        method="get"
+        class="flex-auto">
+        <div class="relative pl-6 pr-1 text-center">
+          <input
+            class="w-5/6 bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none text-gray-900"
+            type="search"
+            name="q"
+            placeholder="Search...">
+          <button type="submit" class="transform translate-x-4 translate-y-1 text-lg">
+            {% render 'icon-search' %}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "mobile_menu_title",
+        "label": "Title",
+        "default": "Black Diamond",
+        "info": "This is the title for the mobile menu window."
+      }, {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo Image"
+      }, {
+        "type": "checkbox",
+        "id": "logoEnabled",
+        "label": "Use logo image?",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

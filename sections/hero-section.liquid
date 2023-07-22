@@ -1,0 +1,46 @@
+<div class="h-96 max-w-6xl mx-auto relative z-10">
+
+  <div class="relative flex items-center justify-center w-full max-w-6xl mx-auto h-96 bg-gray-800/60 text-center z-20">
+    <div class="max-w-4xl text-white space-y-9 px-8">
+      <h1 class="text-4xl md:text-5xl font-semibold">{{ section.settings.heroHeadline }}</h1>
+      <p class="text-3xl md:text-4xl font-thin">
+        {{ section.settings.heroDescription }}
+      </p>
+    </div>
+  </div>
+
+  {% if section.settings.image %}
+    {{ section.settings.image | image_url: width: 1200 | image_tag: class: "w-full h-full object-center object-cover relative" }}
+  {% else %}
+    {{ 'image' | placeholder_svg_tag: "w-full h-full object-center object-cover relative" }}
+  {% endif %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Hero Section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Hero Image"
+      }, {
+        "type": "text",
+        "id": "heroHeadline",
+        "label": "Hero Section Headline",
+        "default": "The perfect gift for your favorite fanatic."
+      }, {
+        "type": "textarea",
+        "id": "heroDescription",
+        "label": "Hero Section Description",
+        "default": "Discover the best sports merchandise while helping to support special needs children."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Section"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,22 @@
+<div>
+  <p>{{ section.settings.message }}</p>
+</div>
+
+{% schema %}
+  {
+    "name": "Important Message",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "message",
+        "label": "Message Text",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Important Message"
+      }
+    ]
+  }
+{% endschema %}

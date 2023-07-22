@@ -1,0 +1,21 @@
+{
+      "sections": {
+            "template": {
+                  "type": "template-page",
+                  "settings": {}
+            },
+            "important-message": {
+                  "type": "centered-hero-text",
+                  "settings": {
+                        "message": "Your questions, concerns, and input are extremely important to us. Please use the form below to reach out."
+                  }
+            },
+            "contact-form": {
+                  "type": "contact-form",
+                  "settings": {
+                        "title": ""
+                  }
+            }
+      },
+      "order": ["template", "important-message", "contact-form"]
+}

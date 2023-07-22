@@ -1,0 +1,80 @@
+{% case section.settings.imagePosition %}
+  {% when "object-top" %}
+  {% assign imageClasses = "w-full h-full object-top object-cover rounded-md" %}
+  {% when "object-center" %}
+  {% assign imageClasses = "w-full h-full object-center object-cover rounded-md" %}
+  {% when "object-bottom" %}
+  {% assign imageClasses = "w-full h-full object-bottom object-cover rounded-md" %}{% else %}
+
+{% endcase %}
+
+<div class="flex flex-col items-center text-white">
+  <div class="block md:flex justify-between items-top max-w-6xl {{  section.settings.orientation }}">
+    <div class="flex-1 px-6 my-4 h-96 overflow-hidden">
+
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 400 | image_tag: class: imageClasses }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: imageClasses }}
+      {% endif %}
+
+    </div>
+    <div class="flex-1 px-6 my-4">
+      <p class="font-thin text-2xl leading-10">{{ section.settings.cardText }}</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Info & Image Card",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Card Image"
+      }, {
+        "type": "textarea",
+        "id": "cardText",
+        "label": "Card Text",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Maecenas volutpat blandit aliquam etiam. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Rhoncus dolor purus non enim praesent elementum facilisis. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque."
+      }, {
+        "type": "radio",
+        "id": "orientation",
+        "label": "Card Orientation",
+        "options": [
+          {
+            "value": "flex-row",
+            "label": "Image on Left Side"
+          }, {
+            "value": "flex-row-reverse",
+            "label": "Image on Right Side"
+          }
+        ],
+        "default": "flex-row"
+      }, {
+        "type": "radio",
+        "id": "imagePosition",
+        "label": "Image Position",
+        "options": [
+          {
+            "value": "object-top",
+            "label": "Focus on image top"
+          }, {
+            "value": "object-center",
+            "label": "Focus on image center"
+          }, {
+            "value": "object-bottom",
+            "label": "Focus on image bottom"
+          }
+        ],
+        "default": "object-center"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Info Image Card"
+      }
+    ]
+  }
+{% endschema %}
