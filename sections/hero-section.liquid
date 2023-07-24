@@ -1,16 +1,16 @@
 <div class="h-96 max-w-6xl mx-auto relative z-10">
 
-  <div class="relative flex items-center justify-center w-full max-w-6xl mx-auto h-96 bg-gray-800/60 text-center z-20">
+  <div class="absolute flex items-center justify-center w-full max-w-6xl mx-auto h-96 bg-gray-800/60 text-center z-10">
     <div class="max-w-4xl text-white space-y-9 px-8">
       <h1 class="text-4xl md:text-5xl font-semibold">{{ section.settings.heroHeadline }}</h1>
-      <p class="text-3xl md:text-4xl font-thin">
+      <h4 class="text-3xl md:text-4xl">
         {{ section.settings.heroDescription }}
-      </p>
+      </h4>
     </div>
   </div>
 
   {% if section.settings.image %}
-    {{ section.settings.image | image_url: width: 1200 | image_tag: class: "w-full h-full object-center object-cover relative" }}
+    {{ section.settings.image | image_url: width: 1200 | image_tag: class: "w-full h-full object-center object-cover realtive" }}
   {% else %}
     {{ 'image' | placeholder_svg_tag: "w-full h-full object-center object-cover relative" }}
   {% endif %}

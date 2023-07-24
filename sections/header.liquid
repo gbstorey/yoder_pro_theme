@@ -1,7 +1,7 @@
 <div
   x-data="{ mobileMenuOpen: false, searchBarOpen: false }"
   x-cloak
-  class="relative max-w-6xl py-6 mx-auto px-6">
+  class="relative max-w-6xl py-6 mx-auto px-6 z-50">
   <div class="h-20 flex items-center md:h-auto md:mr-6 lg:mr-0 md:justify-between">
     <div class="absolute left-1/2 transform -translate-x-1/2 md:left-0  md:relative md:transform-none md:1/6 md:inline">
       <a href="{{ routes.root_url }}">
@@ -38,15 +38,15 @@
             </button>
 
             <div
-              class="absolute -ml-5 mt-5 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+              class="absolute z-10 -ml-5 mt-5 transform px-2 w-screen max-w-xs sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
               x-show="{{ link_handle }}"
               @click.away="open = false">
-              <div class="shadow-lg border ring-black ring-opacity-5 overflow-hidden rounded-lg">
-                <div class="relative grid gap-6 px-5 py-6 sm:gap-8 sm:p-8">
+              <div class="shadow-lg border ring-black overflow-hidden bg-white rounded-lg">
+                <div class="grid gap-6 px-5 py-6 sm:gap-8 sm:p-2">
 
                   {% for childlink in link.links %}
-                    <a href={{ childlink.url }} class="-m-3 p-3 flex items start rounded-lg z-50 hover:text-link-highlight">
-                      <div class="ml-4">
+                    <a href={{ childlink.url }} class="-m-3 p-3 flex items-center justify-center rounded-lg hover:text-link-highlight">
+                      <div>
                         <h3>
                           {{ childlink.title }}
                         </h3>
@@ -113,17 +113,17 @@
                 <div x-data="{ {{ link_handle }} : false }" class="relative">
                   <button
                     type="button"
-                    class="text-base hover:text-white/80 flex items-center justify-between w-full"
+                    class="flex items-center justify-between w-full hover:text-link-highlight"
                     x-on:click="{{ link_handle }} = ! {{ link_handle }}">
-                    <div>{{ link.title }}</div>
+                    <span>{{ link.title }}</span>
                     {% render 'icon-dropdown' %}
                   </button>
   
                   <div class="grid gap-y-7 py-3" x-show="{{ link_handle }}">
                     {% for childlink in link.links %}
   
-                      <a href={{ childlink.url }} class="-m-3 p-3 mt-2 flex items-center rounded-md  hover:text-white/80hover:bg-gray-50">
-                        <span class="ml-3 text-base font-medium ">
+                      <a href={{ childlink.url }} class="-m-3 p-3 mt-2 flex items-center rounded-md hover:text-link-highlight">
+                        <span class="text-base font-medium ">
                           {{ childlink.title }}
                         </span>
                       </a>
@@ -133,14 +133,40 @@
   
                 </div>
               {% else %}
-                <a href={{ link.url }} class="-m-3 p-3 flex items-center rounded-md  hover:text-white/80 hover:bg-gray-50">
-                  {{ link.title }}
+                <a href={{ link.url }} class="-m-3 p-3 flex items-center rounded-md  hover:text-link-highlight">
+                  <span>{{ link.title }}</span>
                 </a>
               {% endif %}
             {% endfor %}
           </nav>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div x-show="searchBarOpen" class="w-full relative bg-gray-50 border border-gray-400 rounded-lg transition-all mt-4">
+    <div class="h-20 flex justify-center items-center w-11/12 mx-auto">
+      <form
+        action="{{ routes.search_url }}"
+        method="get"
+        class="flex-auto">
+        <div class="relative pl-6 pr-1 text-center">
+          <input
+            class="w-5/6 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none text-gray-900 border border-gray-300"
+            type="search"
+            name="q"
+            placeholder="Search...">
+          <button type="submit" class="transform translate-x-4 translate-y-1 text-lg">
+            {% render 'icon-search' %}
+          </button>
+        </div>
+      </form>
+      <button
+        type="button"
+        x-on:click="searchBarOpen = false"
+        class="mb-1">
+        {% render 'icon-close' %}
+      </button>
     </div>
   </div>
 
