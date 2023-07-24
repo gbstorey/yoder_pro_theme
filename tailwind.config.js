@@ -12,6 +12,9 @@ module.exports = {
                   colors: {
                         important: "#FBBF24",
                         "link-highlight": "#ff7849",
+                        "light-background": "#f9fafb",
+                        "hard-border": "#9ca3af",
+                        "light-border": "#d1d5db",
                   },
                   height: {
                         94: "22rem",

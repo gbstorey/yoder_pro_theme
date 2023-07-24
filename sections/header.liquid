@@ -2,7 +2,7 @@
   x-data="{ mobileMenuOpen: false, searchBarOpen: false }"
   x-cloak
   class="relative max-w-6xl py-6 mx-auto px-6 z-50">
-  <div class="h-20 flex items-center md:h-auto md:mr-6 lg:mr-0 md:justify-between">
+  <div class="h-20 flex items-center md:h-auto md:mr-2 lg:mr-0 md:justify-between">
     <div class="absolute left-1/2 transform -translate-x-1/2 md:left-0  md:relative md:transform-none md:1/6 md:inline">
       <a href="{{ routes.root_url }}">
         <div class="rounded-full h-20 w-20">
@@ -144,7 +144,7 @@
     </div>
   </div>
 
-  <div x-show="searchBarOpen" class="w-full relative bg-gray-50 border border-gray-400 rounded-lg transition-all mt-4">
+  <div x-show="searchBarOpen" class="w-full relative bg-light-background border border-hard-border rounded-lg transition-all mt-4">
     <div class="h-20 flex justify-center items-center w-11/12 mx-auto">
       <form
         action="{{ routes.search_url }}"
@@ -152,7 +152,7 @@
         class="flex-auto">
         <div class="relative pl-6 pr-1 text-center">
           <input
-            class="w-5/6 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none text-gray-900 border border-gray-300"
+            class="w-5/6 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none text-black border border-light-border"
             type="search"
             name="q"
             placeholder="Search...">
