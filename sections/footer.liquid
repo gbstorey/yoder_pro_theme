@@ -1,0 +1,121 @@
+<div class="flex flex-col md:flex-row items-top justify-between px-1 py-2 text-center md:text-left">
+  <div class="my-4 w-1/8">
+    <div class="rounded-full h-20 w-20 mx-auto md:hidden mb-4">
+      {% if section.settings.logo != blank %}
+        {{ section.settings.logo | image_url: width: 100 | image_tag: class: 'w-full h-full object-contain p-1', alt: "Yoder Pro Shop Logo" }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'w-full h-full object-contain p-1' }}
+      {% endif %}
+    </div>
+    <h3>{{ shop.name }}</h3>
+    <p class="mt-2">
+      {{ section.settings.address1 }}
+    </p>
+    <p>
+      {{ section.settings.address2 }}
+    </p>
+    <p class="mt-2">
+      {{ section.settings.phone }}
+    </p>
+    <p class="mt-2">
+      {{ section.settings.hours1 }}
+    </p>
+    <p>
+      {{ section.settings.hours2 }}
+    </p>
+    <p>
+      {{ section.settings.hours3 }}
+    </p>
+  </div>
+
+  {% for link in linklists.footer.links %}
+    <div class="my-4 w-1/8 hidden md:block">
+      <h3>{{ link.title }}</h3>
+      {% for childlink in link.links %}
+        <div class="my-2">
+          <a href="{{ childlink.url }}">
+            <p>{{ childlink.title }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+  <div class="md:hidden">
+    {% for link in linklists.footer.links %}
+      {% assign link_handle = link.handle | replace: '-', '_' %}
+      <div x-data="{ {{ link_handle }}: false }"class="my-4 p-2 w-1/8 relative border border-light-border rounded-lg shadow">
+        <button
+          type="button"
+          class="flex items-center justify-between w-full px-6"
+          x-on:click="{{ link_handle }} = ! {{ link_handle }}">
+          <span>{{ link.title }}</span>
+          {% render 'icon-dropdown' %}
+        </button>
+
+        <div x-show="{{ link_handle }}" @click.away="open = false">
+          {% for childlink in link.links %}
+            <div class="w-full px-6 py-4 text-left">
+              <a href="{{ childlink.url }}">
+                <span>{{ childlink.title }}</span>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo Image"
+      },
+      {
+        "type": "text",
+        "id": "address1",
+        "label": "Address Line 1",
+        "default": "1416 Deborah Rd SE"
+      },
+      {
+        "type": "text",
+        "id": "address2",
+        "label": "Address Line 2",
+        "default": "Rio Rancho, NM 87124"
+      },
+      {
+        "type": "text",
+        "id": "phone",
+        "label": "Business Phone Number",
+        "default": "1-505-514-2583"
+      }, {
+        "type": "text",
+        "id": "hours1",
+        "label": "First Row Hours",
+        "default": "Monday - Friday: 3-7pm MT"
+      }, {
+        "type": "text",
+        "id": "hours2",
+        "label": "Second Row Hours",
+        "default": "Saturday: 10am-1pm MT"
+      }, {
+        "type": "text",
+        "id": "hours3",
+        "label": "Third Row Hours",
+        "default": "Sunday: 3-6pm MT"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Footer"
+      }
+    ]
+  }
+{% endschema %}
