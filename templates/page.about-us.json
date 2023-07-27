@@ -1,10 +1,16 @@
 {
       "sections": {
+            "template": {
+                  "type": "template-about-us"
+            },
             "info-image-card": {
                   "type": "info-image-card"
             },
             "info-image-card-2": {
-                  "type": "info-image-card"
+                  "type": "info-image-card",
+                  "settings": {
+                        "orientation": "flex-row-reverse"
+                  }
             },
             "info-image-card-3": {
                   "type": "info-image-card"
@@ -16,5 +22,12 @@
                   "type": "contact-form"
             }
       },
-      "order": ["info-image-card", "info-image-card-2", "info-image-card-3", "centered-message", "contact-form"]
+      "order": [
+            "template",
+            "info-image-card",
+            "info-image-card-2",
+            "info-image-card-3",
+            "centered-message",
+            "contact-form"
+      ]
 }

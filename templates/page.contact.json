@@ -12,9 +12,6 @@
                         "title": "Contact Us"
                   }
             },
-            "search-by-buttons": {
-                  "type": "search-by-buttons"
-            },
             "footer": {
                   "type": "footer"
             }

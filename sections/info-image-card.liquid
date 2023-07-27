@@ -8,8 +8,8 @@
 
 {% endcase %}
 
-<div class="flex flex-col items-center text-white">
-  <div class="block md:flex justify-between items-top max-w-6xl {{  section.settings.orientation }}">
+<div class="flex flex-col items-center">
+  <div class="block md:flex justify-between items-center max-w-6xl {{  section.settings.orientation }}">
     <div class="flex-1 px-6 my-4 h-96 overflow-hidden">
 
       {% if section.settings.image %}
@@ -20,7 +20,7 @@
 
     </div>
     <div class="flex-1 px-6 my-4">
-      <p class="font-thin text-2xl leading-10">{{ section.settings.cardText }}</p>
+      <h3>{{ section.settings.cardText }}</h3>
     </div>
   </div>
 </div>
