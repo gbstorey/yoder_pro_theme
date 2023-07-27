@@ -4,8 +4,9 @@
       <div class="w-2/3 md:w-5/12 flex items-center mx-auto">
         {% if collection.featured_image != blank %}
           {{ collection.featured_image | image_url: width: 400 | image_tag: class: 'w-full object-cover' }}
-        {% elsif collection.products.first.image == blank %}
+        {% elsif collection.products.first.image != blank %}
           {{ collection.products.first.image | image_url: width: 400 | image_tag: class: 'w-full object-cover' }}
+        {% elsif collection.title == "Products" %}
         {% else %}
           {{ 'product-1' | placeholder_svg_tag: 'w-full object-cover bg-gray-100' }}
         {% endif %}
