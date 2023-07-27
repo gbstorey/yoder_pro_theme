@@ -1,0 +1,20 @@
+{
+      "sections": {
+            "info-image-card": {
+                  "type": "info-image-card"
+            },
+            "info-image-card-2": {
+                  "type": "info-image-card"
+            },
+            "info-image-card-3": {
+                  "type": "info-image-card"
+            },
+            "centered-message": {
+                  "type": "centered-message"
+            },
+            "contact-form": {
+                  "type": "contact-form"
+            }
+      },
+      "order": ["info-image-card", "info-image-card-2", "info-image-card-3", "centered-message", "contact-form"]
+}
