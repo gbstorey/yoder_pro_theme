@@ -1,11 +1,15 @@
 {
-  "name": "Template Collection",
-  "sections": {
-    "template": {
-      "type": "template-collection"
-    }
-  },
-  "order": [
-    "template"
-  ]
+      "name": "Template Collection",
+      "sections": {
+            "template": {
+                  "type": "template-collection"
+            },
+            "search-by-buttons": {
+                  "type": "search-by-buttons"
+            },
+            "footer": {
+                  "type": "footer"
+            }
+      },
+      "order": ["template", "search-by-buttons", "footer"]
 }
