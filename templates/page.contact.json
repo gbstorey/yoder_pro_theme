@@ -1,11 +1,7 @@
 {
       "sections": {
-            "template": {
-                  "type": "template-page",
-                  "settings": {}
-            },
             "important-message": {
-                  "type": "centered-hero-text",
+                  "type": "centered-message",
                   "settings": {
                         "message": "Your questions, concerns, and input are extremely important to us. Please use the form below to reach out."
                   }
@@ -13,9 +9,15 @@
             "contact-form": {
                   "type": "contact-form",
                   "settings": {
-                        "title": ""
+                        "title": "Contact Us"
                   }
+            },
+            "search-by-buttons": {
+                  "type": "search-by-buttons"
+            },
+            "footer": {
+                  "type": "footer"
             }
       },
-      "order": ["template", "important-message", "contact-form"]
+      "order": ["important-message", "contact-form", "footer"]
 }
