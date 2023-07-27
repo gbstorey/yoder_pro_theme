@@ -90,6 +90,11 @@
                 {% endif %}
               </div>
 
+              {% when 'description' %}
+              <div class="my-3">
+                <p>{{ product.description }}</p>
+              </div>
+
               {% when 'variant_selector' %}
               <div class="my-3">
                 {% unless product.has_only_default_variant %}
@@ -138,18 +143,13 @@
                 </div>
               </div>
 
-              {% when 'description' %}
-              <div class="my-3">
-                <p>{{ product.description }}</p>
-              </div>
-
               {% when 'checkout_buttons' %}
               <div class="my-3">
                 <button
                   type="submit"
                   id="cart_button"
                   name="add"
-                  class="w-full px-6 py-4 bg-gray-900 text-white hover:bg-gray-700 rounded-sm my-2">
+                  class="w-full px-6 py-4 bg-gray-900 text-white text-lexend text-2xl font-semibold hover:bg-gray-700 my-2 rounded-xl">
                   Add to Cart
                 </button>
               </div>
@@ -339,16 +339,16 @@
         "limit": 1
       },
       {
+        "type": "description",
+        "name": "Description",
+        "limit": 1
+      }, {
         "type": "variant_selector",
         "name": "Variant Selector",
         "limit": 1
       }, {
         "type": "quantity",
         "name": "Quantity",
-        "limit": 1
-      }, {
-        "type": "description",
-        "name": "Description",
         "limit": 1
       }, {
         "type": "checkout_buttons",
