@@ -1,7 +1,7 @@
 <div class="max-w-6xl mx-auto px-6 py-12">
   <div class="flex items-start md:items-end justify-between my-5">
     <div class="w-1/2">
-      <h1 class="text-2xl font-bold">Order {{ order.name }}</h1>
+      <h1>Order {{ order.name }}</h1>
       <p class="my-2">Placed On {{ order.created_at | date: format: 'date' }}
       </p>
       <span class="text-sm text-white bg-gray-700 rounded-full my-2 px-4 py-1">{{ order.financial_status_label }}</span>
@@ -10,9 +10,9 @@
   </div>
   <div>
     {% for line_item in order.line_items %}
-      <div class="w-full border border-gray-200 divide-y rounded-sm mb-4">
+      <div class="w-full border border-hard-border shadow-lg divide-y rounded-sm mb-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12 p-4 md:p-12">
-          <div class="w-full h-80 min-h-80 bg-gray-200 rounded-md overflow-hidden border">
+          <div class="w-full h-80 min-h-80 rounded-md overflow-hidden border">
             {% if line_item.image %}
               {{ line_item.image | image_url: width: 300 | image_tag: class: "w-full h-full object-center object-cover", alt: line_item.image.alt }}
             {% else %}
@@ -22,9 +22,9 @@
 
           <div>
 
-            <h1 class="text-xl font-medium mb-4">
+            <h2 class="mb-4">
               {{ line_item.title | link_to: line_item.product.url }}
-            </h1>
+            </h2>
 
             <table class="table-auto w-full mb-4">
               <tbody>
@@ -44,13 +44,13 @@
             </table>
 
             <div class="mb-4">
-              {{ line_item.product.description | truncatewords: 15 }}
+              <p>{{ line_item.product.description | strip_html | truncatewords: 25 }}</p>
             </div>
 
           </div>
 
           <div>
-            <h1 class="font-medium mb-4">Delivery Address</h1>
+            <h2 class="mb-4">Delivery Address</h2>
             <div class="mb-4">
               <div>
 
@@ -82,8 +82,9 @@
             <a
               target="_blank"
               href="{{ line_item.fulfillment.tracking_url }}"
-              class="flex w-max text-sm font-medium bg-gray-700 hover:bg-gray-900 px-4 py-2 rounded">Track your order
-              <span class="ml-2">{% render 'icon-link' %}</span>
+              class="flex w-max text-sm border border-light-border   hover:bg-gray-600 hover:text-white px-4 py-2 rounded shadow-lg">
+              <span>Track Your Order</span>
+              <span class="ml-2 mb-1">{% render 'icon-link' %}</span>
             </a>
           {% else %}
             <p>This item is not yet fulfilled.</p>
@@ -94,20 +95,20 @@
     {% endfor %}
   </div>
 
-  <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12 border border-gray-200 rounded-sm p-4 md:p-12 my-6 ">
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12 border border-hard-border rounded-sm p-4 md:p-12 my-6 ">
     <div>
-      <h1 class="font-medium mb-4">Billing address</h1>
+      <h2>Billing address</h2>
       {{ order.billing_address | format_address }}
     </div>
     <div>
-      <h1 class="font-medium mb-4">Payment Information</h1>
+      <h2>Payment Information</h2>
       {% for transaction in order.transactions %}
         <div class="mb-4">
           {% assign credit_card_company = transaction.payment_details.credit_card_company %}
           {% assign credit_card_last_four_digits = transaction.payment_details.credit_card_number %}
           {% if credit_card_company %}
-            <p>{{ credit_card_company }}</p>
-            <p>{{ credit_card_last_four_digits }}</p>
+            <p class="mt-2">{{ credit_card_company }}</p>
+            <p class="mb-2">{{ credit_card_last_four_digits }}</p>
 
             {% case transaction.status_label %}
               {% when 'Failure' %}
