@@ -1,11 +1,12 @@
 {
-  "name": "Template Account",
-  "sections": {
-    "template": {
-      "type": "template-customer-account"
-    }
-  },
-  "order": [
-    "template"
-  ]
+      "name": "Template Account",
+      "sections": {
+            "template": {
+                  "type": "template-customer-account"
+            },
+            "footer": {
+                  "type": "footer"
+            }
+      },
+      "order": ["template", "footer"]
 }

@@ -1392,6 +1392,11 @@ p,
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -2167,6 +2172,10 @@ p,
 
   .lg\:h-80 {
     height: 20rem;
+  }
+
+  .lg\:h-60 {
+    height: 15rem;
   }
 
   .lg\:max-w-7xl {
