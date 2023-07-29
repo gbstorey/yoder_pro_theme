@@ -1,9 +1,9 @@
 {% if cart.item_count > 0 %}
 
-  <div class="px-6">
+  <div>
     <div class="max-w-6xl flex flex-col mx-auto">
       <div class="flex items-end justify-between my-5">
-        <h1 class="text-3xl">Your Cart</h1>
+        <h1>Your Cart</h1>
         <a href={{ routes.all_products_collection_url }} class="text-blue-600 hover:text-blue-600 font-medium underline">Continue Shopping</a>
       </div>
     </div>
@@ -36,7 +36,7 @@
                   <a href={{ item.url }} class="my-1">
                     {{ item.product.title | truncatewords: 5 }}</a>
                   {% if item.variant.title != "Default Title" %}
-                    <span class="text-sm text-gray-500 my-1">
+                    <span class="text-sm text-hard-border my-1">
                       {{ item.variant.title }}</span>
                   {% endif %}
                   <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-sm font-medium text-red-500 my-1">Remove</a>
@@ -48,7 +48,7 @@
                     value="{{ item.quantity }}"
                     min="1"
                     id="updates_{{ forloop.index }}"
-                    class="w-20 border p-2 text-gray-900">
+                    class="w-20 border p-2">
                 </td>
                 <td class="py-4">
                   {{ item.line_price | money }}
@@ -65,7 +65,7 @@
               <textarea
                 name="note"
                 id="cart_notes"
-                class="w-full md:max-w-lg resize-none border h-20 p-2 text-gray-900"></textarea>
+                class="w-full md:max-w-lg resize-none border h-20 p-2"></textarea>
             </div>
           </div>
           <div class="w-full my-4 md:w-80">
