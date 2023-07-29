@@ -9,8 +9,8 @@
 
       <div class="flex items-center justify-center">
         <div class="max-w-7xl text-center">
-          <a href="{{ blog.url }}" class="text-base uppercase text-gray-500 hover:text-gray-900 font-bold">{{ blog.title }}</a>
-          <h1 class="text-4xl md:text-6xl font-medium" itemprop="headline">{{ article.title }}</h1>
+          <a href="{{ blog.url }}" class="text-base uppercase text-gray-500 hover:text-gray-900">{{ blog.title }}</a>
+          <h1 itemprop="headline" class="my-4">{{ article.title }}</h1>
         </div>
       </div>
 
@@ -22,7 +22,9 @@
           itemscope
           itemtype="http://schema.org/Person">
           {% if section.settings.enable_author %}
-            <small itemprop="author">{{ article.author }}</small>
+            <small itemprop="author">
+              {{ article.author }}
+            </small>
           {% endif %}
         </div>
       </div>
@@ -40,24 +42,25 @@
         </div>
       </div>
 
-      {% when 'featured_image' %}
 
-      <div itemprop="image" class="max-w-7xl bg-blue-100 rounded-lg mx-2 md:mx-auto overflow-hidden my-4">
-        {% if article.image != blank %}
-          {{ article.image | image_url: width: 400 | image_tag: class: "w-full h-80 md:h-96 object-cover object-center", alt: article.image.alt }}
-        {% else %}
-          {% assign placeholder_image = 'lifestyle-2' %}
-          {{ placeholder_image | placeholder_svg_tag: 'w-full h-80 md: h-96 object-cover object-center p-5' }}
-        {% endif %}
+      <div class="flex flex-row justify-center items-center max-w-7xl">
+        {% when 'featured_image' %}
+        <div itemprop="image" class="w-1/2 rounded-lg mx-auto overflow-hidden my-4">
+          {% if article.image != blank %}
+            {{ article.image | image_url: width: 400 | image_tag: class: "w-full h-80 md:h-96 object-contain object-center", alt: article.image.alt }}
+          {% else %}
+            {% assign placeholder_image = 'lifestyle-2' %}
+            {{ placeholder_image | placeholder_svg_tag: 'w-full h-80 md: h-96 object-cover object-center p-5' }}
+          {% endif %}
+        </div>
       </div>
-
-
-
+      {% when 'product_feature' %}
+      <div class="w-1/2"></div>
       {% when 'article_content' %}
 
       <div class="flex items-center justify-center">
-        <div itemprop="articleBody" class="max-w-4xl">
-          {{ article.content }}
+        <div itemprop="articleBody" class="max-w-4xl px-12 md:py-0">
+          {{ article.content | newline_to_br }}
         </div>
       </div>
 
@@ -183,8 +186,8 @@
 <script type="application/ld+json">
   {
   "@context": "http://schema.org",
-                                "@type": "BlogPosting",
-                                "headline": {{ article.title | json }},
+                                                                        "@type": "BlogPosting",
+                                                                        "headline": {{ article.title | json }},
   "articleBody": {{ article.content | strip_html | json }},
   {% if article.excerpt != blank %}
     "description" : {{ article.excerpt | strip_html | json }},
@@ -197,59 +200,57 @@
   "datePublished": {{ article.published_at | date: format: "default" | json }},
   "dateCreated": {{ article.created_at | date: format: "default" | json }},
   "author": {
-                                    "@type": "Person",
-                                    "name": {{ article.author | json }}
+                                                                            "@type": "Person",
+                                                                            "name": {{ article.author | json }}
   },
   "publisher": {
-                                    "@type": "Organization",
-                                    "name": {{ shop.name | json }}
+                                                                            "@type": "Organization",
+                                                                            "name": {{ shop.name | json }}
   }
   }
 </script>
 
 {% schema %}
-{
-  "name": "Template Article",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "enable_author",
-      "default": true,
-      "label": "Display Author Name"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_published_date",
-      "default": true,
-      "label": "Display Published Date"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "article_title",
-      "name": "Title",
-      "limit": 1
-    },
-    {
-      "type": "article_author",
-      "name": "Author",
-      "limit": 1
-    },
-    {
-      "type": "article_published_date",
-      "name": "Published Date",
-      "limit": 1
-    },
-    {
-      "type": "featured_image",
-      "name": "Thumbnail",
-      "limit": 1
-    },
-    {
-      "type": "article_content",
-      "name": "Content",
-      "limit": 1
-    }
-  ]
-}
+  {
+    "name": "Template Article",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_author",
+        "default": true,
+        "label": "Display Author Name"
+      }, {
+        "type": "checkbox",
+        "id": "enable_published_date",
+        "default": true,
+        "label": "Display Published Date"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "article_title",
+        "name": "Title",
+        "limit": 1
+      },
+      {
+        "type": "article_author",
+        "name": "Author",
+        "limit": 1
+      },
+      {
+        "type": "article_published_date",
+        "name": "Published Date",
+        "limit": 1
+      },
+      {
+        "type": "featured_image",
+        "name": "Thumbnail",
+        "limit": 1
+      }, {
+        "type": "article_content",
+        "name": "Content",
+        "limit": 1
+      }
+    ]
+  }
 {% endschema %}
