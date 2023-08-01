@@ -1,11 +1,11 @@
 {% if pagination.pages > 0 %}
   <nav role="navigation" class="flex justify-center my-8">
     {% if pagination.previous %}
-      <a class="border border-gray-200 text-gray-200 hover:bg-gray-300 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium" href={{ pagination.previous.url }}>{{ pagination.previous.title }}</a>
+      <a class="border border-hard-border hover:bg-gray-200 px-8 py-3 mx-1 rounded-sm font-medium" href={{ pagination.previous.url }}>{{ pagination.previous.title }}</a>
     {% endif %}
 
     {% if pagination.next %}
-      <a class="border border-gray-200 text-gray-200 hover:bg-gray-300 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium" href={{ pagination.next.url }}>{{ pagination.next.title }}</a>
+      <a class="border border-hard-border hover:bg-gray-200 px-8 py-3 mx-1 rounded-sm font-medium" href={{ pagination.next.url }}>{{ pagination.next.title }}</a>
     {% endif %}
   </nav>
 {% endif %}
