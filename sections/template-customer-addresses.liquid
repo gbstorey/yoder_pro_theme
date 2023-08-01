@@ -12,7 +12,7 @@
   <!-- New Address -->
 
   <div x-show="new_address" class="h-full w-full fixed inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto z-50">
-    <div class="relative max-w-md mx-auto border top-20 p-4 bg-gray-800">
+    <div class="relative max-w-md mx-auto border top-20 p-4 bg-white">
       <div class="flex items-center justify-between mb-4">
         <h2 class="text-lg font-medium">New Address</h2>
         <button x-on:click="new_address = false">{% render 'icon-close' %}</button>
@@ -177,7 +177,7 @@
             <!-- Edit Address -->
 
             <div x-show="address_{{ address.id }}"class="h-full w-full fixed inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto z-50">
-              <div class="relative max-w-md mx-auto bg-gray-800 border top-20 bottom-20 p-4 address-form">
+              <div class="relative max-w-md mx-auto bg-white border top-20 bottom-20 p-4 address-form">
                 <div class="flex items-center justify-between mb-4">
                   <h2 class="text-lg font-medium">Edit address</h2>
                   <button x-on:click="address_{{ address.id }} = false">{% render 'icon-close' %}</button>
