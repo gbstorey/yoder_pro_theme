@@ -14,7 +14,7 @@
                     {% assign collection_image = collection.products.first.image %}
                   {% endif %}
 
-                  {{ collection_image | image_url: width: 250 | image_tag: class: "w-full h-full object-cover transition duration-500 ease-in-out transform hover:scale-105", alt: collection.title }}
+                  {{ collection_image | image_url: width: 400 | image_tag: class: "w-full h-full object-cover transition duration-500 ease-in-out transform hover:scale-105", alt: collection.title }}
 
                 </div>
               </a>
