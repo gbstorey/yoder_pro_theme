@@ -1,31 +1,52 @@
 {
-      "sections": {
-            "hero-section": {
-                  "type": "hero-section",
-                  "settings": {
-                        "image": "shopify://shop_images/301353331_583691570148248_5559993468893791668_n.png",
-                        "heroHeadline": "The perfect gift for your favorite fanatic.",
-                        "heroDescription": "Discover the best sports merchandise while helping to support special needs children."
-                  }
-            },
-            "featured-organizations": {
-                  "type": "featured-organizations"
-            },
-            "featured-collection": {
-                  "type": "featured-collection",
-                  "settings": {
-                        "title": "Featured Collection",
-                        "featured_collection": "all",
-                        "num_products": 8,
-                        "showVendor": true
-                  }
-            },
-            "search-by-buttons": {
-                  "type": "search-by-buttons"
-            },
-            "footer": {
-                  "type": "footer"
-            }
-      },
-      "order": ["hero-section", "featured-organizations", "featured-collection", "search-by-buttons", "footer"]
+  "sections": {
+    "hero-section": {
+      "type": "hero-section",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/pexels-anna-shvets-5952884_3.jpg",
+        "heroHeadline": "Top-of-the-line equipment for less.",
+        "heroDescription": "We find the best offers for unique bowling equipment, helping you perform at a higher level for a lower price."
+      }
+    },
+    "featured-organizations": {
+      "type": "featured-organizations",
+      "settings": {
+        "collection_list": [
+          "brand-one"
+        ]
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "featured_collection": "all",
+        "num_products": 8,
+        "showVendor": true
+      }
+    },
+    "search-by-buttons": {
+      "type": "search-by-buttons",
+      "settings": {
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "address1": "1416 Deborah Rd SE",
+        "address2": "Rio Rancho, NM 87124",
+        "phone": "1-505-514-2583",
+        "hours1": "Monday - Friday: 3-7pm MT",
+        "hours2": "Saturday: 10am-1pm MT",
+        "hours3": "Sunday: 3-6pm MT"
+      }
+    }
+  },
+  "order": [
+    "hero-section",
+    "featured-organizations",
+    "featured-collection",
+    "search-by-buttons",
+    "footer"
+  ]
 }
