@@ -4,9 +4,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "mobile_menu_title": "Black Diamond",
-          "logo": "shopify:\/\/shop_images\/logo_df7b7fb8-92fa-4ad1-9cc3-bbe60d869132.png",
-          "logoEnabled": true
+          "logo": "shopify:\/\/shop_images\/tenpins.svg"
         }
       }
     },
