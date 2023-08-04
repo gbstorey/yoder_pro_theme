@@ -16,14 +16,11 @@
                         "thumbnail": {
                               "type": "featured_image"
                         },
-                        "product-feature": {
-                              "type": "product-feature"
-                        },
                         "content": {
                               "type": "article_content"
                         }
                   },
-                  "block_order": ["title", "author", "published_date", "thumbnail", "product-feature", "content"]
+                  "block_order": ["title", "author", "published_date", "thumbnail", "content"]
             }
       },
       "order": ["template"]
