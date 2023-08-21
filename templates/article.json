@@ -1,27 +1,61 @@
 {
-      "name": "Template Article",
-      "sections": {
-            "template": {
-                  "type": "template-article",
-                  "blocks": {
-                        "title": {
-                              "type": "article_title"
-                        },
-                        "author": {
-                              "type": "article_author"
-                        },
-                        "published_date": {
-                              "type": "article_published_date"
-                        },
-                        "thumbnail": {
-                              "type": "featured_image"
-                        },
-                        "content": {
-                              "type": "article_content"
-                        }
-                  },
-                  "block_order": ["title", "author", "published_date", "thumbnail", "content"]
-            }
+  "sections": {
+    "template": {
+      "type": "template-article",
+      "blocks": {
+        "title": {
+          "type": "article_title",
+          "settings": {
+          }
+        },
+        "author": {
+          "type": "article_author",
+          "settings": {
+          }
+        },
+        "published_date": {
+          "type": "article_published_date",
+          "settings": {
+          }
+        },
+        "thumbnail": {
+          "type": "featured_image",
+          "settings": {
+          }
+        },
+        "content": {
+          "type": "article_content",
+          "settings": {
+          }
+        }
       },
-      "order": ["template"]
+      "block_order": [
+        "title",
+        "author",
+        "published_date",
+        "thumbnail",
+        "content"
+      ],
+      "settings": {
+        "enable_author": true,
+        "enable_published_date": true
+      }
+    },
+    "dc596c44-918c-40d2-8d41-52c25521e64c": {
+      "type": "footer",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/tenpins.svg",
+        "address1": "1416 Deborah Rd SE",
+        "address2": "Rio Rancho, NM 87124",
+        "phone": "1-505-514-2583",
+        "hours1": "Monday - Friday: 3-7pm MT",
+        "hours2": "Saturday: 10am-1pm MT",
+        "hours3": "Sunday: 3-6pm MT"
+      }
+    }
+  },
+  "order": [
+    "template",
+    "dc596c44-918c-40d2-8d41-52c25521e64c"
+  ]
 }
