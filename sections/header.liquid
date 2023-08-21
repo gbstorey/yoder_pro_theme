@@ -15,10 +15,21 @@
       </a>
     </div>
 
-    <div class="-mr-2 -my-2 ml-auto md:ml-3 md:hidden">
+    <div class="-mr-2 -my-2 ml-auto md:ml-3 md:hidden space-x-2 md:space-x-4">
         <button
           type="button"
-          class="p-2 inline-flex items-center justify-center focus:outline-none"
+          class="whitespace-nowrap text-base hover:text-link-highlight"
+          x-on:click="searchBarOpen = true">
+          {% render 'icon-search' %}
+        </button>
+        <button>
+          <a href={{ routes.cart_url }} class="whitespace-nowrap text-base hover:text-link-highlight">
+            {% render 'icon-shopping-bag' %}
+          </a>
+        </button>
+        <button
+          type="button"
+          class="inline-flex items-center justify-center focus:outline-none"
           x-on:click="mobileMenuOpen = !mobileMenuOpen">
           {% render 'icon-hamburger' %}
         </button>
@@ -138,6 +149,23 @@
                 </a>
               {% endif %}
             {% endfor %}
+            {% if shop.customer_accounts_enabled %}
+          {% if customer %}
+            <a href={{ routes.account_url }}>
+              <span class="hover:text-link-highlight">Account</span>
+            </a>
+            <a href={{ routes.account_logout_url }}>
+              <span class="hover:text-link-highlight">Logout</span>
+            </a>
+          {% else %}
+            <a href={{ routes.account_login_url }}>
+              <span class="hover:text-link-highlight">Login</span>
+            </a>
+            <a href={{ routes.account_register_url }}>
+              <span class="text-important hover:text-link-highlight">Register</span>
+            </a>
+          {% endif %}
+        {% endif %}
           </nav>
         </div>
       </div>

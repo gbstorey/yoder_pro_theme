@@ -1,9 +1,8 @@
-<div class="flex flex-col items-center mb-8 border border-light-border rounded-lg shadow-lg">
-  {% if section.settings.article %}
+<div class="flex flex-col items-center mb-8 border border-light-border rounded-lg shadow-lg max-w-6xl px-6 mx-6 md:mx-0">
+  {% if section.settings.article != blank %}
     <div class="block md:flex justify-between items-center max-w-6xl {{  section.settings.orientation }}">
-
-      <div class="flex-1 px-6 my-4 h-96 overflow-hidden">
-        {% if section.settings.videoURL %}
+      {% if section.settings.videoURL %}
+        <div class="flex-1 px-6 my-4 h-72 overflow-hidden">
           {% if section.settings.videoURL.type == 'youtube' %}
             <iframe
               src="https://www.youtube.com/embed/{{ section.settings.videoURL.id }}"
@@ -17,19 +16,21 @@
               allow="autoplay; encrypted-media"
               title="Product Review"></iframe>
           {% endif %}
-        {% endif %}
-      </div>
+        </div>
+      {% endif %}
 
-      <div class="flex-1 px-6 my-4 space-y-2">
-        <h2>{{ section.settings.article.author }}</h2>
-        <h5>{{ section.settings.article.created_at | date: "%a, %b %d, %Y" }}</h5>
-        <p>
-          {{ section.settings.article.excerpt_or_content }}
-        </p>
+      <div class="flex-1 px-6 my-4">
+        <a href="{{ section.settings.article.url }}">
+          <h2>{{ section.settings.article.author }}</h2>
+          <h5 class="mb-4">{{ section.settings.article.created_at | date: "%a, %b %d, %Y" }}</h5>
+          <p>
+            {{ section.settings.article.excerpt_or_content | strip_html }}
+          </p>
+        </a>
       </div>
     </div>
   {% else %}
-    <h2 class="my-4">Stay tuned for our review of this ball!</h2>
+    <h2 class="my-4 text-center">Stay tuned for our review of this ball!</h2>
   {% endif %}
 </div>
 
@@ -60,6 +61,11 @@
           }
         ],
         "default": "flex-row"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Review Card"
       }
     ]
   }

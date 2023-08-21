@@ -43,9 +43,6 @@
                   ],
                   "settings": {}
             },
-            "prouduct-review-card": {
-                  "type": "product-review-card"
-            },
             "search-by-buttons": {
                   "type": "search-by-buttons"
             },
@@ -53,5 +50,5 @@
                   "type": "footer"
             }
       },
-      "order": ["template", "prouduct-review-card", "search-by-buttons", "footer"]
+      "order": ["template", "search-by-buttons", "footer"]
 }

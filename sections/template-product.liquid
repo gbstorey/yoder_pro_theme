@@ -29,6 +29,12 @@
   .product--information {
     height: fit-content;
   }
+  .product_description table {
+    border: 1px solid rgba(31, 41, 55, 0.136);
+  }
+  .product_description td {
+    padding: 2px 0;
+  }
 </style>
 
 <div x-data="{ productModalOpen: false }">
@@ -91,8 +97,8 @@
               </div>
 
               {% when 'description' %}
-              <div class="my-3">
-                <p>{{ product.description }}</p>
+              <div class="my-6 space-y-4 product_description">
+                {{ product.description }}
               </div>
 
               {% when 'variant_selector' %}
