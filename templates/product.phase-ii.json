@@ -67,6 +67,7 @@
     "footer": {
       "type": "footer",
       "settings": {
+        "logo": "shopify:\/\/shop_images\/tenpins.svg",
         "address1": "1416 Deborah Rd SE",
         "address2": "Rio Rancho, NM 87124",
         "phone": "1-505-514-2583",
