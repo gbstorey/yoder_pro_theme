@@ -1,24 +1,47 @@
 {
-      "name": "Template Cart",
-      "sections": {
-            "template": {
-                  "type": "template-cart",
-                  "blocks": {
-                        "subtotal": {
-                              "type": "subtotal"
-                        },
-                        "update-button": {
-                              "type": "update_button"
-                        },
-                        "checkout-button": {
-                              "type": "checkout_button"
-                        }
-                  },
-                  "block_order": ["subtotal", "update-button", "checkout-button"]
-            },
-            "footer": {
-                  "type": "footer"
-            }
+  "sections": {
+    "template": {
+      "type": "template-cart",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {
+          }
+        },
+        "update-button": {
+          "type": "update_button",
+          "settings": {
+          }
+        },
+        "checkout-button": {
+          "type": "checkout_button",
+          "settings": {
+          }
+        }
       },
-      "order": ["template", "footer"]
+      "block_order": [
+        "subtotal",
+        "update-button",
+        "checkout-button"
+      ],
+      "settings": {
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/tenpins.svg",
+        "address1": "1416 Deborah Rd SE",
+        "address2": "Rio Rancho, NM 87124",
+        "phone": "1-505-514-2583",
+        "hours1": "Monday - Friday: 3-7pm MT",
+        "hours2": "Saturday: 10am-1pm MT",
+        "hours3": "Sunday: 3-6pm MT"
+      }
+    }
+  },
+  "order": [
+    "template",
+    "footer"
+  ]
 }
