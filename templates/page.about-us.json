@@ -1,33 +1,66 @@
 {
-      "sections": {
-            "template": {
-                  "type": "template-about-us"
-            },
-            "info-image-card": {
-                  "type": "info-image-card"
-            },
-            "info-image-card-2": {
-                  "type": "info-image-card",
-                  "settings": {
-                        "orientation": "flex-row-reverse"
-                  }
-            },
-            "info-image-card-3": {
-                  "type": "info-image-card"
-            },
-            "centered-message": {
-                  "type": "centered-message"
-            },
-            "contact-form": {
-                  "type": "contact-form"
-            }
-      },
-      "order": [
-            "template",
-            "info-image-card",
-            "info-image-card-2",
-            "info-image-card-3",
-            "centered-message",
-            "contact-form"
-      ]
+  "sections": {
+    "template": {
+      "type": "template-about-us",
+      "settings": {
+      }
+    },
+    "info-image-card": {
+      "type": "info-image-card",
+      "settings": {
+        "cardText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Maecenas volutpat blandit aliquam etiam. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Rhoncus dolor purus non enim praesent elementum facilisis. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque.",
+        "orientation": "flex-row",
+        "imagePosition": "object-center"
+      }
+    },
+    "info-image-card-2": {
+      "type": "info-image-card",
+      "settings": {
+        "cardText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Maecenas volutpat blandit aliquam etiam. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Rhoncus dolor purus non enim praesent elementum facilisis. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque.",
+        "orientation": "flex-row-reverse",
+        "imagePosition": "object-center"
+      }
+    },
+    "info-image-card-3": {
+      "type": "info-image-card",
+      "settings": {
+        "cardText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Maecenas volutpat blandit aliquam etiam. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Rhoncus dolor purus non enim praesent elementum facilisis. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque.",
+        "orientation": "flex-row",
+        "imagePosition": "object-center"
+      }
+    },
+    "centered-message": {
+      "type": "centered-message",
+      "settings": {
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "settings": {
+        "title": "Contact Us"
+      }
+    },
+    "9fafad5f-419d-40f1-958c-571f1941e691": {
+      "type": "footer",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/tenpins.svg",
+        "address1": "1416 Deborah Rd SE",
+        "address2": "Rio Rancho, NM 87124",
+        "phone": "1-505-514-2583",
+        "hours1": "Monday - Friday: 3-7pm MT",
+        "hours2": "Saturday: 10am-1pm MT",
+        "hours3": "Sunday: 3-6pm MT"
+      }
+    }
+  },
+  "order": [
+    "template",
+    "info-image-card",
+    "info-image-card-2",
+    "info-image-card-3",
+    "centered-message",
+    "contact-form",
+    "9fafad5f-419d-40f1-958c-571f1941e691"
+  ]
 }

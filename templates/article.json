@@ -37,25 +37,10 @@
         "content"
       ],
       "settings": {
-        "enable_author": true,
-        "enable_published_date": true
-      }
-    },
-    "dc596c44-918c-40d2-8d41-52c25521e64c": {
-      "type": "footer",
-      "settings": {
-        "logo": "shopify:\/\/shop_images\/tenpins.svg",
-        "address1": "1416 Deborah Rd SE",
-        "address2": "Rio Rancho, NM 87124",
-        "phone": "1-505-514-2583",
-        "hours1": "Monday - Friday: 3-7pm MT",
-        "hours2": "Saturday: 10am-1pm MT",
-        "hours3": "Sunday: 3-6pm MT"
       }
     }
   },
   "order": [
-    "template",
-    "dc596c44-918c-40d2-8d41-52c25521e64c"
+    "template"
   ]
 }

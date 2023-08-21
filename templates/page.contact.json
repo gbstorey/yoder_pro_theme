@@ -1,20 +1,33 @@
 {
-      "sections": {
-            "important-message": {
-                  "type": "centered-message",
-                  "settings": {
-                        "message": "Your questions, concerns, and input are extremely important to us. Please use the form below to reach out."
-                  }
-            },
-            "contact-form": {
-                  "type": "contact-form",
-                  "settings": {
-                        "title": "Contact Us"
-                  }
-            },
-            "footer": {
-                  "type": "footer"
-            }
-      },
-      "order": ["important-message", "contact-form", "footer"]
+  "sections": {
+    "important-message": {
+      "type": "centered-message",
+      "settings": {
+        "message": "Your questions, concerns, and input are extremely important to us. Please use the form below to reach out."
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "settings": {
+        "title": "Contact Us"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/tenpins.svg",
+        "address1": "1416 Deborah Rd SE",
+        "address2": "Rio Rancho, NM 87124",
+        "phone": "1-505-514-2583",
+        "hours1": "Monday - Friday: 3-7pm MT",
+        "hours2": "Saturday: 10am-1pm MT",
+        "hours3": "Sunday: 3-6pm MT"
+      }
+    }
+  },
+  "order": [
+    "important-message",
+    "contact-form",
+    "footer"
+  ]
 }
