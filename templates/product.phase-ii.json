@@ -54,6 +54,9 @@
     "prouduct-review-card": {
       "type": "product-review-card",
       "settings": {
+        "article": "reviews\/phase-ii-review",
+        "videoURL": "https:\/\/www.youtube.com\/watch?v=PyeFglUfmI4&ab_channel=StormBowlingProductsInc.",
+        "orientation": "flex-row"
       }
     },
     "search-by-buttons": {
@@ -64,6 +67,12 @@
     "footer": {
       "type": "footer",
       "settings": {
+        "address1": "1416 Deborah Rd SE",
+        "address2": "Rio Rancho, NM 87124",
+        "phone": "1-505-514-2583",
+        "hours1": "Monday - Friday: 3-7pm MT",
+        "hours2": "Saturday: 10am-1pm MT",
+        "hours3": "Sunday: 3-6pm MT"
       }
     }
   },
