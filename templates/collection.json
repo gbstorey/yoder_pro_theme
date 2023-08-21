@@ -1,15 +1,33 @@
 {
-      "name": "Template Collection",
-      "sections": {
-            "template": {
-                  "type": "template-collection"
-            },
-            "search-by-buttons": {
-                  "type": "search-by-buttons"
-            },
-            "footer": {
-                  "type": "footer"
-            }
-      },
-      "order": ["template", "search-by-buttons", "footer"]
+  "sections": {
+    "template": {
+      "type": "template-collection",
+      "settings": {
+        "num_products": 6,
+        "showVendor": true
+      }
+    },
+    "search-by-buttons": {
+      "type": "search-by-buttons",
+      "settings": {
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/tenpins.svg",
+        "address1": "1416 Deborah Rd SE",
+        "address2": "Rio Rancho, NM 87124",
+        "phone": "1-505-514-2583",
+        "hours1": "Monday - Friday: 3-7pm MT",
+        "hours2": "Saturday: 10am-1pm MT",
+        "hours3": "Sunday: 3-6pm MT"
+      }
+    }
+  },
+  "order": [
+    "template",
+    "search-by-buttons",
+    "footer"
+  ]
 }
